@@ -15,11 +15,11 @@ class GoodsCategory(models.Model):
     name = models.CharField(default='',max_length=50,verbose_name='类别名',help_text='类别名')
     code = models.CharField(default='',max_length=50,verbose_name='类别code',help_text='类别code')
     desc = models.TextField(default='',verbose_name='类别描述',help_text='类别描述')
-    category_type = models.CharField(choices=CATEGORY_TYPE,verbose_name='类目级别',help_text='类目级别')
+    category_type = models.CharField(max_length=10,choices=CATEGORY_TYPE,verbose_name='类目级别',help_text='类目级别')
     parent_category = models.ForeignKey('self', null=True,blank=True,on_delete=models.CASCADE,
                                         verbose_name='父类别',help_text='父类别',related_name='sub_cat')
     is_tab = models.BooleanField(default=False,verbose_name='是否导航')
-    add_time = models.DateTimeField(default=datetime.time, verbose_name='添加时间')
+    add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
 
     class Meta:
         verbose_name = '商品类别'
@@ -36,7 +36,7 @@ class GoodsCategoryBrand(models.Model):
     name = models.CharField(max_length=50,verbose_name='名称')
     desc = models.TextField(verbose_name='简介')
     image = models.ImageField(max_length=200,upload_to='brand/',verbose_name='图片')
-    add_time = models.DateTimeField(default=datetime.time, verbose_name='添加时间')
+    add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
 
     class Meta:
         verbose_name = '品牌名'

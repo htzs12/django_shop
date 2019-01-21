@@ -12,7 +12,7 @@ class UserProfile(AbstractUser):
     mobile = models.CharField(max_length=11,verbose_name='手机')
     gender = models.CharField(max_length=10,choices=(('male','男'),('female','女')),default='female',verbose_name='性别')
     email = models.CharField(max_length=50,null=True,blank=True,verbose_name='邮箱')
-    add_time = models.DateTimeField(default=datetime.time, verbose_name='添加时间')
+    add_time = models.DateTimeField(default=datetime.now, verbose_name='添加时间')
 
     class Meta:
         verbose_name = '用户'
@@ -28,7 +28,7 @@ class VerifyCode(models.Model):
     """
     code = models.CharField(max_length=50,verbose_name='验证码')
     mobile = models.CharField(max_length=11, verbose_name='手机')
-    add_time = models.DateTimeField(default=datetime.time,verbose_name='添加时间')
+    add_time = models.DateTimeField(default=datetime.now,verbose_name='添加时间')
 
     class Meta:
         verbose_name = '短信验证码'

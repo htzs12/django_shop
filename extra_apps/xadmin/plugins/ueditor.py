@@ -1,6 +1,8 @@
-# -*- coding: utf-8 -*-
+# encoding: utf-8
+__author__ = 'mtianyan'
+__date__ = '2018/1/15 0015 08:11'
 
-__author__ = 'bobby'
+
 
 import xadmin
 from xadmin.views import BaseAdminPlugin, CreateAdminView, ModelFormAdminView, UpdateAdminView
@@ -27,10 +29,12 @@ class UeditorPlugin(BaseAdminPlugin):
                 return {'widget': XadminUEditorWidget(**param)}
         return attrs
 
+    # 在我们生成的页面中放入自己的js文件
     def block_extrahead(self, context, nodes):
         js = '<script type="text/javascript" src="%s"></script>' % (settings.STATIC_URL + "ueditor/ueditor.config.js")         #自己的静态目录
         js += '<script type="text/javascript" src="%s"></script>' % (settings.STATIC_URL + "ueditor/ueditor.all.min.js")   #自己的静态目录
         nodes.append(js)
-
+## 新增页面
 xadmin.site.register_plugin(UeditorPlugin, UpdateAdminView)
+## 修改页面
 xadmin.site.register_plugin(UeditorPlugin, CreateAdminView)
