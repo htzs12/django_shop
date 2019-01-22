@@ -43,7 +43,6 @@ class OrderInfo(models.Model):
     post_script = models.CharField(max_length=200, verbose_name="订单留言")
     order_mount = models.FloatField(default=0.0, verbose_name="订单金额")
     pay_time = models.DateTimeField(default=datetime.now,null=True, blank=True, verbose_name="支付时间")
-
     # 用户信息
     address = models.CharField(max_length=100, default="", verbose_name="收货地址")
     signer_name = models.CharField(max_length=20, default="", verbose_name="签收人")
