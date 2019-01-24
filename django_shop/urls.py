@@ -19,6 +19,12 @@ from django.urls import path,re_path,include
 from django_shop.settings import MEDIA_ROOT
 from django.views.static import serve
 from rest_framework.documentation import include_docs_urls
+from rest_framework.routers import DefaultRouter
+from goods.views import GoodsListView,CategoryViewset
+
+router = DefaultRouter()
+router.register(r'goods',GoodsListView,base_name='goods')
+router.register(r'categorys',CategoryViewset,base_name='categorys')
 
 
 urlpatterns = [

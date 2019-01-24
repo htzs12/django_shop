@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Goods
+from .models import Goods,GoodsCategory
 
 
 # class GoodsSerializer(serializers.Serializer):
@@ -7,8 +7,20 @@ from .models import Goods
 #     click_num = serializers.IntegerField(default=0)
 #     goods_front_image = serializers.ImageField()
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GoodsCategory
+        fields = '__all__'
+
 
 class GoodsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Goods
+        fields = '__all__'
+
+
+class GoodsCategorySerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+    class Meta:
+        model = GoodsCategory
         fields = '__all__'
