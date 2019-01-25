@@ -44,3 +44,4 @@ class CategoryViewset(mixins.ListModelMixin,viewsets.GenericViewSet):
     """
     queryset = GoodsCategory.objects.all()
     serializer_class = CategorySerializer
+
