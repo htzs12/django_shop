@@ -23,7 +23,6 @@ from rest_framework import routers
 from goods.views import GoodsListView,CategoryViewset
 
 router = routers.DefaultRouter()
-router.register('goods',GoodsListView,base_name='goods')
 router.register('categorys',CategoryViewset,base_name='categorys')
 
 

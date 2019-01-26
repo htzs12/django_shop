@@ -33,15 +33,15 @@ class GoodsListView(APIView):
 #         return self.list(request,*args,**kwargs)
 
 
-class GoodsList1View(generics.ListAPIView):
-    queryset = Goods.objects.all()
-    serializer_class = GoodsSerializer
+# class GoodsList1View(generics.ListAPIView):
+#     queryset = Goods.objects.all()
+#     serializer_class = GoodsSerializer
 
 
 class CategoryViewset(mixins.ListModelMixin,viewsets.GenericViewSet):
     """
     list  商品分类列表数据
     """
-    queryset = GoodsCategory.objects.all()
+    queryset = GoodsCategory.objects.filter(category_type=1)
     serializer_class = CategorySerializer
 

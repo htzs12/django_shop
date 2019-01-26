@@ -14,14 +14,13 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class GoodsSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
     class Meta:
-        model = Goods
+        model = GoodsCategory
         fields = '__all__'
 
 
 class GoodsCategorySerializer(serializers.ModelSerializer):
-    category = CategorySerializer()
-
     class Meta:
         model = GoodsCategory
         fields = '__all__'
