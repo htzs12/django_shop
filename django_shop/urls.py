@@ -14,7 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-import xadmin
 from django.urls import path,re_path,include
 from django_shop.settings import MEDIA_ROOT
 from django.views.static import serve
@@ -29,7 +28,6 @@ router.register('categorys',CategoryViewset,base_name='categorys')
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('xadmin/', xadmin.site.urls),
     path('goods/', include('goods.urls')),
     path('docs/', include_docs_urls(title='haoge')),
     path('api-auth/', include('rest_framework.urls',namespace='rest_framework')),
