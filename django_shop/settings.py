@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import os, sys
+import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -89,7 +90,6 @@ DATABASES = {
         'NAME': 'django_shop',
         'USER': 'root',
         'PASSWORD': 'wan1230',
-        # 'HOST':'139.196.76.251',
         'HOST': '127.0.0.1',
         'PORT': 3306,
     }
