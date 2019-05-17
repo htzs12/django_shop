@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import xadmin
+
 from django.contrib import admin
 from django.urls import path,re_path,include
 from django_shop.settings import MEDIA_ROOT
@@ -28,9 +28,9 @@ router.register('categorys',CategoryViewset,base_name='categorys')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('xadmin/', xadmin.site.urls),
+    path('admin/', admin.site.urls),
     path('goods/', include('goods.urls')),
-    path('docs/', include_docs_urls(title='haoge')),
+    path('docs/', include_docs_urls(title='django_shop')),
     path('api-auth/', include('rest_framework.urls',namespace='rest_framework')),
 
     # 处理图片显示的url,使用django自带server，传入参数告诉它去哪里找，我们有配置好的路径MEDIA_ROOT

@@ -1,9 +1,9 @@
 import json
-from django.http import JsonResponse,HttpResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.views.generic.base import View
-from .models import Goods,GoodsCategory
-from .serializes import GoodsSerializer,GoodsCategorySerializer,CategorySerializer
+from .models import Goods, GoodsCategory
+from .serializes import GoodsSerializer, GoodsCategorySerializer, CategorySerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import mixins
@@ -12,9 +12,9 @@ from rest_framework import viewsets
 
 
 class GoodsListView(APIView):
-    def get(self,request):
+    def get(self, request):
         goods = Goods.objects.all()[:10]
-        goods_serializer = GoodsSerializer(goods,many=True)
+        goods_serializer = GoodsSerializer(goods, many=True)
         return Response(goods_serializer.data)
 
     # def post(self,request):
@@ -38,10 +38,9 @@ class GoodsListView(APIView):
 #     serializer_class = GoodsSerializer
 
 
-class CategoryViewset(mixins.ListModelMixin,viewsets.GenericViewSet):
+class CategoryViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     list  商品分类列表数据
     """
     queryset = GoodsCategory.objects.filter(category_type=1)
     serializer_class = CategorySerializer
-
