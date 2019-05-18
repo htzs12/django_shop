@@ -25,6 +25,7 @@ class GoodsCategory(models.Model):
     class Meta:
         verbose_name = "商品类别"
         verbose_name_plural = verbose_name
+        ordering = ('add_time',)
 
     def __str__(self):
         return self.name

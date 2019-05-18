@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Goods, GoodsCategory, GoodsCategoryBrand, GoodsImage
 
 
 class GoodsAdmin(admin.ModelAdmin):
@@ -13,10 +13,16 @@ class GoodsAdmin(admin.ModelAdmin):
     style_fields = {"goods_desc": "ueditor"}
 
 
+admin.site.register(Goods, GoodsAdmin)
+
+
 class GoodsCategoryAdmin(admin.ModelAdmin):
     list_display = ["name", "category_type", "parent_category", "add_time"]
     list_filter = ["category_type", "parent_category", "name"]
     search_fields = ['name', ]
+
+
+admin.site.register(GoodsCategory, GoodsCategoryAdmin)
 
 
 class BannerGoodsAdmin(admin.ModelAdmin):

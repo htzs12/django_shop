@@ -10,6 +10,6 @@ good_list = views.GoodListViewset.as_view({
 })
 
 urlpatterns = [
-    path('', views.GoodsListView.as_view(), name='goods'),
+    path('goods_list/', views.GoodsListView.as_view(), name='goods'),
     path('list/', good_list, name='goods_list'),
 ]

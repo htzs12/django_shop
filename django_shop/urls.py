@@ -20,16 +20,16 @@ from django_shop.settings import MEDIA_ROOT
 from django.views.static import serve
 from rest_framework.documentation import include_docs_urls
 from rest_framework.routers import DefaultRouter
-from goods.views import GoodsListView, CategoryViewset, GoodListViewset
+from goods.views import CategoryViewset, GoodListViewset
 
 router = DefaultRouter()
 router.register('goods',GoodListViewset,base_name='goods')
+router.register('categorys',CategoryViewset,base_name='categorys')
 
 
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    # path('goods/', include('goods.urls')),
     path('docs/', include_docs_urls(title='django_shop')),
     path('api-auth/', include('rest_framework.urls',namespace='rest_framework')),
 
